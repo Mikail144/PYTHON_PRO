@@ -7,7 +7,7 @@ intents = discord.Intents.default()
 intents.message_content = True
 
 
-TOKEN = ('MTM4Njc2OTQ2NjczNzU2MTYzMQ.GEj1ed.6RDFz50CHr4wiQhIRKotaTQJnfRfWCZg4o2Ks4')
+TOKEN = ('Token')
     
 
 bot = discord.Client(intents=intents)
