@@ -1,0 +1,245 @@
+import discord
+
+# ayricaliklar (intents) değişkeni botun ayrıcalıklarını depolayacak
+intents = discord.Intents.default()
+# Mesajları okuma ayrıcalığını etkinleştirelim
+intents.message_content = True
+# client (istemci) değişkeniyle bir bot oluşturalım ve ayrıcalıkları ona aktaralım
+client = discord.Client(intents=intents)
+
+@client.event
+async def on_ready():
+    print(f'{client.user} olarak giriş yaptık.')
+# Yazı tura komutu
+
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+    if message.content.startswith('Merhaba'):
+        await message.channel.send("Merhaba nasıl yardımcı olabilirim. Şu başlıkları deneye bilirsiniz:" \
+        " İklim," \
+        " Küresel ısınma," \
+        " Eğlenceli ve önemli bilgiler")
+    elif message.content.startswith('İklim'):
+        await message.channel.send("Peki. Şu başlıkları yazmayı deneye bilirsin:" \
+        " Günlük hayatta yapabileceklerin.\n" \
+        " Ulaşım alışkanlıkları\n" \
+        " Beslenme alışkanlıkları\n" \
+        " Doğaya katkı\n" \
+        " Bilinçlen ve bilinçlendir\n" \
+        " kopyalayıp yapıştırınız")
+
+    elif message.content.startswith('Küresel ısınma'):
+        await message.channel.send("Peki. Şu başlıkları yazmayı deneye bilirsin-:" \
+        " Küresel ısınmanın nedenleri\n" 
+        " Küresel ısınmanın sonuçları\n" 
+        " Küresel ısınmayı önlemek için neler yapabiliriz?\n" 
+        " Sera etkisi olmadan dünya yaşanamazdı\n" 
+        " Okyanuslar ısınıyor ve asitleşiyor\n" 
+        " Hayvanların göç yolları değişiyor\n"
+        " Gıda güvenliği tehlikede\n"
+        " Küresel ısınma hızlanıyor\n"
+        " Orman yangınları artıyor\n" 
+        " KOPYALAYIP YAPIŞTIRNIZ (kolaylık olsun diye)")
+
+    elif message.content.startswith('Eğlenceli ve önemli bilgiler'):
+        await message.channel.send("Peki. Şu başlıkları yazmayı deneye bilirsin:" \
+        " Beyşehir gölü tehlike altında\n" 
+        " Karbon ayak izi nedir\n" 
+        " 10 yıl sonra\n" 
+        " 20 yıl sonra\n" 
+        " 30 yıl sonra\n"
+        " Ama iyi haber de var\n"
+        )
+    
+    elif message.content.startswith('Günlük hayatta yapabileceklerin'):
+        await message.channel.send(
+        " Elektrik tasarrufu yap: Kullanmadığın ışıkları kapat\n"
+        " Su israfını azalt: Diş fırçalarken musluğu kapat\n"
+        " Daha az plastik kullan: Bez çanta, matara kullan\n"
+        " Geri dönüşüm yap: Kağıt, plastik, cam ayır"
+        )
+    
+    elif message.content.startswith('Ulaşım alışkanlıkları'):
+        await message.channel.send(
+        " Kısa mesafelerde yürüyüş veya bisiklet kullan\n"
+        " Toplu taşıma tercih et\n"
+        " Özel araç kullanımını mümkün olduğunca azalt\n"
+        )
+    
+    elif message.content.startswith('Beslenme alışkanlıkları'):
+        await message.channel.send(
+        " Gıda israf etme, tabağına yiyebileceğin kadar al\n"
+        " Yerel ve mevsiminde üretilmiş ürünleri tercih et\n"
+        " Haftada birkaç gün etsiz beslenmeyi dene (çok et üretimi doğaya zarar verir)\n"
+        )
+    
+    elif message.content.startswith('Doğaya katkı'):
+        await message.channel.send(
+        " Ağaç dikme etkinliklerine katıl 🌲\n"
+        " Doğayı kirletenleri nazikçe uyar\n"
+        " Piknik sonrası çöplerini mutlaka topla\n"
+        )
+    
+    elif message.content.startswith('Bilinçlen ve bilinçlendir'):
+        await message.channel.send(
+        " İklim değişikliği hakkında araştır\n"
+        " Arkadaşlarını ve aileni bilgilendir\n"
+        " Okulda projeler ve sunumlar hazırla\n"
+        )
+    
+    elif message.content.startswith('Küresel ısınmanın sonuçları'):
+        await message.channel.send(
+        "Buzulların erimesi ve deniz seviyesinin yükselmesi\n"
+        "Kuraklık, sel, fırtına gibi aşırı hava olaylarının artması\n"
+        "Canlı türlerinin yok olması\n"
+        "Tarımın zarar görmesi ve su kaynaklarının azalması\n  "
+        )
+
+    elif message.content.startswith('Küresel ısınmanın nedenleri'):
+        await message.channel.send(
+        "Fosil yakıtların kullanımı: Kömür, petrol ve doğalgaz yakılmasıyla atmosfere fazla karbondioksit (CO₂) salınır.\n"
+        "Ormansızlaşma: Ağaçlar CO₂’yi emer. Ormanlar yok olunca bu denge bozulur.\n"
+        "Sanayi ve ulaşım: Fabrikalar ve araçlar sera gazı üretir.\n"
+        "Tarım ve hayvancılık: Büyükbaş hayvanlar metan gazı salgılar, bu da güçlü bir sera gazıdır.\n"
+        )
+
+    elif message.content.startswith('Küresel ısınmayı önlemek için neler yapabiliriz'):
+        await message.channel.send(
+        "Enerji tasarrufu yapmak (gereksiz ışıkları kapatmak gibi)\n"
+        "Yenilenebilir enerji kullanmak (güneş, rüzgâr)\n"
+        "Ağaç dikmek ve ormanları korumak\n"
+        "Toplu taşıma kullanmak\n"
+        "Geri dönüşüme önem vermek\n"
+        )
+
+    elif message.content.startswith('Sera etkisi olmadan dünya yaşanamazdı'):
+        await message.channel.send(
+        "Sera etkisi aslında doğal ve gerekli bir olaydır. Ancak insan faaliyetleri bu etkiyi aşırı güçlendirdiği için küresel ısınma ortaya çıkıyor.\n"
+        )
+
+    elif message.content.startswith('Okyanuslar ısınıyor ve asitleşiyor'):
+        await message.channel.send(
+        "Okyanuslar fazla ısının büyük kısmını emer. Bu durum:\n"
+        "Deniz canlılarının yaşamını zorlaştırır\n"
+        "Mercan resiflerinin beyazlaşmasına neden olur\n"
+        )
+
+    elif message.content.startswith('Hayvanların göç yolları değişiyor'):
+        await message.channel.send(
+        "Küresel ısınma nedeniyle bazı hayvanlar:\n"
+        "Daha serin bölgelere göç ediyor\n"
+        "Üreme zamanlarını değiştiriyor\n"
+        )
+
+    elif message.content.startswith('Gıda güvenliği tehlikede'):
+        await message.channel.send(
+        "Artan sıcaklıklar:\n"
+        "Verimi düşürüyor\n"
+        "Açlık riskini artırıyor\n"
+        "Bazı bölgelerde tarımı neredeyse imkânsız hâle getiriyor\n"
+        )
+    
+    elif message.content.startswith('Orman yangınları artıyor'):
+        await message.channel.send(
+        "Sıcaklık ve kuraklık arttıkça:\n"
+        "Yangınlar daha sık ve daha büyük oluyor\n"
+        "Atmosfere daha fazla CO₂ salınıyor (kısır döngü)\n"
+        )
+
+    elif message.content.startswith('Küresel ısınma hızlanıyor'):
+        await message.channel.send(
+        "Son 100 yıldaki sıcaklık artışı, önceki binlerce yıla göre çok daha hızlı gerçekleşiyor.\n"
+        "Yangınlar daha sık ve daha büyük oluyor\n"
+        "Atmosfere daha fazla CO₂ salınıyor (kısır döngü)\n"
+        )
+
+    elif message.content.startswith('Beyşehir gölü tehlike altında'):
+        await message.channel.send(
+        "Beyşehir Gölü Türkiye’nin en büyük tatlı su gölü.\n"
+        "\n"
+        "Son yıllarda:\n"
+        "\n"
+        "Kuraklık\n"
+        "\n"
+        "Aşırı sulama\n"
+        "\n"
+        "İklim değişikliği\n"
+        "nedeniyle su seviyesi ciddi şekilde düşüyor.\n"
+        "\n"
+        "Eğer bu hızla devam ederse:\n"
+        "\n"
+        "Bazı kıyı bölgeleri tamamen kuruyabilir\n"
+        "\n"
+        "Balıkçılık ve tarım zarar görür\n"
+        "\n"
+        "Bölge iklimi daha sıcak olur\n"
+        "\n"
+        "👉 Kısaca: Göl küçülürse çevresi de çölleşmeye başlar.\n"
+        "Yangınlar daha sık ve daha büyük oluyor\n"
+        "Atmosfere daha fazla CO₂ salınıyor (kısır döngü)\n",
+        file=discord.File("bey.png")
+        )
+    
+    elif message.content.startswith('Karbon ayak izi nedir'):
+        await message.channel.send(
+        "Karbon ayak izi =\n"
+        "“Doğaya bıraktığımız görünmez duman izi”\n"
+        "\n"
+        "Araba kullanmak 🚗\n"
+        "Elektriği boşa harcamak 💡\n",
+        "Fazla tüketmek 🛍️"
+        "\n"
+        "Bunlar hepsi karbon ayak izimizi artırır.\n",
+        file=discord.File("ayakizi.png")
+        )
+    
+    elif message.content.startswith('10 yıl sonra'):
+        await message.channel.send(
+        "🔟 10 YIL SONRA\n"
+        "Türkiye’de:\n"
+        "\n"
+        "Kuraklık daha sık görülür\n"
+        "Barajlar daha çabuk boşalır\n"
+        "\n"
+        "Göllerin çoğunda (Beyşehir, Akşehir gibi):\n"
+        "Su çekilmesi artar\n"
+        "Yazlar daha uzun ve daha sıcak olur 🌡️\n",
+        file=discord.File("10yil.png")
+        )
+    elif message.content.startswith('20 yıl sonra'):
+        await message.channel.send(
+        "🔟🔟 20 YIL SONRA\n"
+        "Bazı küçük göller haritadan silinebilir\n"
+        "Tarım ürünleri azalır → gıda pahalılaşır 🍞\n"
+        "Orman yangınları çok daha yaygın olur 🔥\n"
+        "Su, petrol kadar değerli hâle gelir\n",
+        file=discord.File("20yil.png")
+        )
+
+    elif message.content.startswith('30 yıl sonra'):
+        await message.channel.send(
+        "🔟🔟🔟 30 YIL SONRA\n"
+        "Eğer karbon ayak izi azaltılmazsa:\n"
+        "İç Anadolu’nun bazı bölgeleri yarı çöl olabilir\n"
+        "Su savaşları konuşulmaya başlanabilir\n"
+        "Bazı hayvan türleri Türkiye’de tamamen yok olabilir 🐢❌\n",
+        file=discord.File("30yil.png")
+        )
+
+    elif message.content.startswith('Ama iyi haber de var'):
+        await message.channel.send(
+        "✅ AMA İYİ HABER DE VAR!\n"
+        "Eğer insanlar:\n"
+        "Suyu dikkatli kullanırsa 🚿\n"
+        "Elektrikli arabalar kullanmak\n"
+        "Ağaçları korur ve çoğaltırsa 🌳\n"
+        "\n"
+        "👉 Bu senaryoların çoğu yavaşlatılabilir hatta durdurulabilir.\n",
+        file=discord.File("iyihaber.png")
+        )
+    else:
+        await message.channel.send("Lütfen 'Merhaba' yazarak başlayınız")
+
+client.run("MTM4Njc2OTQ2NjczNzU2MTYzMQ.GSykKV.0NIpByKwkdlJz4ExPBwiW4k9bZJ9hpkB1HXg5M")
